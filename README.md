@@ -1,64 +1,105 @@
-# Curator Finance — Intelligent Financial Dashboard
+# 📊 Curator Finance — Intelligent Financial Intelligence Platform
 
-Curator Finance is a dual-purpose financial analysis platform designed for professional-grade equity research and automated reporting. It combines a robust **Python-based Automation Pipeline** with a high-fidelity **Streamlit Interactive Dashboard** featuring a premium "Curator" dark-mode aesthetic.
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Visualization-Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+**Curator Finance** is a professional-grade, dual-purpose financial analysis platform. It seamlessly bridges the gap between high-performance **Automation Pipelines** (CLI-based reporting) and high-fidelity **Interactive Dashboards** (Web-based research), featuring a premium glassmorphic dark-navy aesthetic.
 
 ![Dashboard Preview](assets/demo.webp)
 
+---
+
 ## 🚀 Key Features
 
-### 1. Automated Financial Reporting (`main.py`)
-- **Multi-Source Data Ingestion**: Seamlessly fetches market data using YFinance and EDGAR.
-- **Precision Cleaning**: Validates and standardizes inconsistent financial statement schemas into a unified Parquet-based data lake.
-- **Ratio Analysis Engine**: Automatically computes over 25+ key financial metrics (Profitability, Liquidity, Solvency, Efficiency).
-- **Batch Report Generation**: Generates professionally formatted **Excel** and **PDF** financial summaries in seconds.
+### 1. Automated Financial Pipeline (`main.py`)
+Transform raw ticker symbols into investment-banking-grade models in seconds.
+- **Precision Data Ingestion**: Seamlessly fetches audited 10-K/10-Q fundamentals from **SEC EDGAR** and live market data from **Yahoo Finance**.
+- **Financial Engineering**: Automatically computes a full suite of **25+ key ratios**, including DuPont 3-factor decomposition, profitability, liquidity, and solvency metrics.
+- **Batch Reporting**: Generates professionally formatted **Excel workbooks** (with IB-style headers) and **PDF summaries** (with automated charting).
 
 ### 2. Interactive "Curator" Dashboard (`app.py`)
-- **Real-time Visualization**: High-visibility line and bar charts powered by Plotly.
-- **Modern UI/UX**: Custom-injected CSS providing a glassmorphic dark-navy theme.
-- **Deep Fundamentals**: Integrated multi-year Income Statements, Balance Sheets, and Cash Flow views with "Millions/Billions" auto-formatting.
-- **Peer Comparison**: Dynamic peer analysis and technical trend monitoring.
-- **DCF & Variance**: Built-in Discounted Cash Flow valuation engine and budget variance trackers.
+A state-of-the-art web interface designed for deep-dive equity research.
+- **Museum-Grade UI**: Custom-injected CSS providing a "Curator" dark-mode theme with high-visibility slate-background KPI cards.
+- **Deep-Dive Fundamentals**: Professional multi-year views of Income Statements, Balance Sheets, and Cash Flows with automated "Millions/Billions" scaling.
+- **Technical Analysis**: Integrated candlestick charts, moving averages, and volatility monitoring.
+- **Valuation Engine**: Built-in **Discounted Cash Flow (DCF)** models and Budget Variance trackers.
 
-## 🛠️ Tech Stack
-- **Dashboard**: Streamlit, Plotly, Custom Vanilla CSS.
-- **Data Engine**: Pandas, NumPy, Parquet (Fast I/O).
-- **APIs**: YFinance, SEC-EDGAR.
-- **Reporting**: ReportLab (PDF), OpenPyXL (Excel).
+---
 
-## 📥 Installation & Setup
+## 🏗️ Architecture & Tech Stack
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/curator-finance.git
-   cd curator-finance
-   ```
+```mermaid
+graph LR
+    A[yfinance] -->|Prices & Info| D[Data Pipeline]
+    B[SEC EDGAR] -->|10-K/10-Q| D
+    D --> E[Cleaner & Validator]
+    E --> F[Ratio Calculator]
+    F --> G[Excel Report]
+    F --> H[PDF Report]
+    F --> I[Streamlit Dashboard]
+    E --> K[Parquet Data Lake]
+```
 
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| **Core** | Python 3.11+ | Orchestration & Logic |
+| **Dashboard** | Streamlit + Plotly | Reactive UI & Visualization |
+| **Data Engine** | Pandas + NumPy | High-speed processing |
+| **Persistence** | Apache Parquet | Type-safe, compressed storage |
+| **Reporting** | OpenPyXL + FPDF2 | Professional XLSX/PDF output |
 
-3. **Environment Setup**:
-   - Create a `.env` file based on `.env.example` if API keys are required for advanced data providers.
+---
 
-## 🏃 Usage
+## ⚙️ Quick Start
 
-### Start the Dashboard
+### 1. Installation
+```bash
+# Clone the repository
+git clone https://github.com/insomniumroxcs-source/financial-reporting-system.git
+cd financial-reporting-system
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Launch the Dashboard (UI)
 ```bash
 streamlit run src/dashboard/app.py
 ```
 
-### Run the Automation Pipeline
+### 3. Run the Automation Pipeline (CLI)
 ```bash
-python main.py --tickers AAPL MSFT GOOGL --output-dir ./output
+# Generate reports for specific tickers
+python main.py --tickers AAPL MSFT NVDA --output-dir ./output
 ```
 
-## 📂 Project Structure
-- `src/`: Core Python logic (Processing, Ingestion, Reports).
-- `src/dashboard/`: Streamlit app modules, CSS assets, and tab definitions.
-- `data/`: Parquet data lake for raw and processed financials.
-- `output/`: Generated Excel and PDF reports.
-- `assets/`: UI assets and styling documents.
+---
+
+## 📊 Financial Ratios Computed
+
+| Category | Ratios |
+|----------|--------|
+| **Profitability** | Gross/Operating/Net Margin, EBITDA Margin |
+| **Returns** | ROE, ROA, **DuPont 3-Factor Decomposition** |
+| **Liquidity** | Current Ratio, Quick Ratio |
+| **Leverage** | Debt-to-Equity, Interest Coverage |
+| **Cash Flow** | Free Cash Flow (OCF - CapEx) |
 
 ---
-*Created for High-Performance Financial Analysis.*
+
+## 📂 Project Structure
+
+- `src/`: Core Python source code (Ingestion, Processing, Reporting).
+- `src/dashboard/`: Streamlit orchestrator, CSS assets, and modular tab logic.
+- `data/`: Parquet data lake for raw and processed financial statements.
+- `output/`: Automated directory for generated Excel and PDF research reports.
+- `assets/`: UI design tokens and branding assets.
+
+---
+
+<p align="center">
+  <i>Created for High-Performance Financial Analysis & Professional Equity Research.</i><br>
+  <b>FMVA Certified | CFA Candidate | IIM Kozhikode</b>
+</p>
