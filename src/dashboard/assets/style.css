@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* Curator Finance CSS Design System Injection for Streamlit */
+:root {
+  --color-surface: #0c0e11;
+  --color-background: #0c0e11;
+  --color-primary: #c3c7cc;
+  --color-secondary: #02c953;
+  --color-tertiary: #ff7350;
+  --color-surface-container: #161a1f;
+  --color-surface-container-low: #111418;
+  --color-surface-container-high: #1b2027;
+  --color-surface-container-highest: #20262e;
+  --color-on-surface: #e0e6f1;
+  --color-on-surface-variant: #a5abb6;
+  --color-outline: #707680;
+  --color-outline-variant: rgba(66, 72, 81, 0.2);
+  
+  --font-headline: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* 1. Reset Built-in Streamlit Styles */
+html, body, [class*="css"] {
+    font-family: var(--font-body);
+}
+
+.stApp {
+    background-color: var(--color-background);
+}
+
+/* Hide Default Streamlit Elements to make it feel like a real web app */
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+footer[data-testid="stFooter"] {
+    display: none !important;
+}
+
+#MainMenu {
+    display: none !important;
+}
+
+/* 2. Fix the Block Container for Full Width/Custom Paddings */
+.block-container {
+    padding-top: 1rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 100% !important;
+}
+
+/* 3. Global Typography */
+h1, h2, h3, h4, h5, h6, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+    font-family: var(--font-headline) !important;
+    color: var(--color-on-surface) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+}
+
+p, span, div.stMarkdown p {
+    color: var(--color-on-surface-variant);
+}
+
+/* 4. Streamlit Metric Cards Styling */
+[data-testid="stMetricValue"] {
+    font-family: var(--font-headline) !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: var(--color-on-surface) !important;
+}
+
+[data-testid="stMetricLabel"] {
+    font-family: var(--font-body) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.65rem !important;
+    font-weight: 700 !important;
+    color: var(--color-on-surface-variant) !important;
+    margin-bottom: 0.25rem !important;
+}
+
+[data-testid="stMetricDelta"] {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+}
+
+div[data-testid="metric-container"] {
+    background-color: var(--color-surface-container-low);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: 0.75rem;
+    padding: 1.25rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+div[data-testid="metric-container"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* 5. Tabs Styling Override */
+button[data-baseweb="tab"] {
+    background-color: transparent !important;
+    color: var(--color-on-surface-variant) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem !important;
+    border-bottom-color: transparent !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--color-on-surface) !important;
+    border-bottom-color: var(--color-tertiary) !important;
+    border-bottom-width: 2px !important;
+}
+
+/* Sidebar Inputs */
+div[data-testid="stSidebar"] {
+    background-color: #17191e !important;
+    border-right: 1px solid var(--color-outline-variant) !important;
+}
+
+div[data-testid="stSidebar"] [data-baseweb="select"] > div,
+div[data-testid="stSidebar"] [data-baseweb="base-input"] > input,
+div[data-testid="stTextInput"] > div > div > input {
+    background-color: #0c0e11 !important;
+    border: 1px solid transparent !important;
+    color: var(--color-on-surface) !important;
+    border-radius: 6px !important;
+    font-family: var(--font-body) !important;
+    font-size: 14px !important;
+}
+
+div[data-testid="stSidebar"] [data-baseweb="select"] > div:hover,
+div[data-testid="stSidebar"] [data-baseweb="base-input"] > input:focus,
+div[data-testid="stTextInput"] > div > div > input:focus {
+    border: 1px solid var(--color-outline-variant) !important;
+}
+
+/* Sidebar Labels */
+.st-emotion-cache-1jighlb label p, .st-emotion-cache-1jighlb label div {
+    color: var(--color-on-surface-variant) !important;
+    font-size: 12px !important;
+    font-family: var(--font-body) !important;
+}
+
+/* Custom HTML Injections Wrapper */
+.curator-hero {
+    background-color: var(--color-surface-container-low);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-outline-variant);
+}
+
+.curator-hero-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-on-surface-variant);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.curator-hero-value {
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: var(--font-headline);
+    color: var(--color-on-surface);
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.material-icons-custom {
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}

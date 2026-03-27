@@ -1,0 +1,154 @@
+# ============================================================
+# Financial Reporting System Configuration
+# ============================================================
+
+sec:
+  identity: "abhigyandeep99@gmail.com"
+
+# Default tickers to analyze
+tickers:
+  - AAPL
+  - MSFT
+  - GOOGL
+  - AMZN
+
+# Date range defaults
+data:
+  price_lookback_years: 2
+  statements_lookback_years: 5
+
+# Output paths (relative to project root)
+output:
+  excel_dir: "output/excel"
+  pdf_dir: "output/pdf"
+  processed_data_dir: "data/processed"
+  raw_data_dir: "data/raw"
+
+# XBRL → Human-readable field mapping
+# Keys: standardised internal names
+# Values: list of possible XBRL / source field names (matched in order)
+field_mapping:
+  revenue:
+    - "RevenueFromContractWithCustomerExcludingAssessedTax"
+    - "Revenues"
+    - "SalesRevenueNet"
+    - "Revenue"
+    - "Total Revenue"
+  cost_of_revenue:
+    - "CostOfGoodsAndServicesSold"
+    - "CostOfRevenue"
+    - "Cost Of Revenue"
+  gross_profit:
+    - "GrossProfit"
+    - "Gross Profit"
+  operating_income:
+    - "OperatingIncomeLoss"
+    - "Operating Income"
+  net_income:
+    - "NetIncomeLoss"
+    - "Net Income"
+  total_assets:
+    - "Assets"
+    - "Total Assets"
+  total_liabilities:
+    - "Liabilities"
+    - "Total Liabilities"
+  total_equity:
+    - "StockholdersEquity"
+    - "Total Stockholders Equity"
+    - "Stockholders Equity"
+  operating_cash_flow:
+    - "NetCashProvidedByUsedInOperatingActivities"
+    - "Operating Cash Flow"
+  capital_expenditure:
+    - "PaymentsToAcquirePropertyPlantAndEquipment"
+    - "Capital Expenditure"
+  total_current_assets:
+    - "AssetsCurrent"
+    - "Total Current Assets"
+  total_current_liabilities:
+    - "LiabilitiesCurrent"
+    - "Total Current Liabilities"
+  long_term_debt:
+    - "LongTermDebt"
+    - "LongTermDebtNoncurrent"
+    - "Long Term Debt"
+  interest_expense:
+    - "InterestExpense"
+    - "Interest Expense"
+  ebitda:
+    - "EBITDA"
+  depreciation:
+    - "DepreciationAndAmortization"
+    - "Depreciation & Amortization"
+  earnings_per_share:
+    - "EarningsPerShareBasic"
+    - "Basic EPS"
+  inventory:
+    - "InventoryNet"
+    - "Inventories"
+    - "Inventory"
+  accounts_receivable:
+    - "AccountsReceivableNetCurrent"
+    - "Accounts Receivable"
+    - "Net Receivables"
+  research_development:
+    - "ResearchAndDevelopmentExpense"
+    - "Research And Development"
+    - "Research Development"
+  shares_outstanding:
+    - "CommonStockSharesOutstanding"
+    - "Shares Outstanding"
+  interest_income:
+    - "InterestIncome"
+    - "Interest Income"
+  accounts_payable:
+    - "AccountsPayable"
+    - "Accounts Payable"
+
+# DCF defaults
+dcf_defaults:
+  risk_free_rate: 0.0425
+  market_premium: 0.055
+  terminal_growth: 0.025
+  tax_rate: 0.21
+  cost_of_debt: 0.05
+  projection_years: 5
+
+# Industry benchmarks for budget variance analysis
+industry_benchmarks:
+  Consumer Defensive:
+    gross_margin: 0.37
+    operating_margin: 0.15
+    net_margin: 0.10
+  Technology:
+    gross_margin: 0.60
+    operating_margin: 0.25
+    net_margin: 0.20
+  Financial Services:
+    gross_margin: 0.55
+    operating_margin: 0.35
+    net_margin: 0.25
+  Healthcare:
+    gross_margin: 0.65
+    operating_margin: 0.20
+    net_margin: 0.15
+  Communication Services:
+    gross_margin: 0.55
+    operating_margin: 0.22
+    net_margin: 0.18
+  Industrials:
+    gross_margin: 0.30
+    operating_margin: 0.12
+    net_margin: 0.08
+  Energy:
+    gross_margin: 0.40
+    operating_margin: 0.15
+    net_margin: 0.10
+
+# Logging
+logging:
+  console_level: "INFO"
+  file_level: "DEBUG"
+  log_file: "logs/pipeline.log"
+
