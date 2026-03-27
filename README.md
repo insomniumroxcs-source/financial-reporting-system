@@ -7,24 +7,31 @@
 
 **Curator Finance** is a professional-grade, dual-purpose financial analysis platform. It seamlessly bridges the gap between high-performance **Automation Pipelines** (CLI-based reporting) and high-fidelity **Interactive Dashboards** (Web-based research), featuring a premium glassmorphic dark-navy aesthetic.
 
-![Dashboard Preview](assets/demo.webp)
-
 ---
 
 ## 🚀 Key Features
 
-### 1. Automated Financial Pipeline (`main.py`)
-Transform raw ticker symbols into investment-banking-grade models in seconds.
-- **Precision Data Ingestion**: Seamlessly fetches audited 10-K/10-Q fundamentals from **SEC EDGAR** and live market data from **Yahoo Finance**.
-- **Financial Engineering**: Automatically computes a full suite of **25+ key ratios**, including DuPont 3-factor decomposition, profitability, liquidity, and solvency metrics.
-- **Batch Reporting**: Generates professionally formatted **Excel workbooks** (with IB-style headers) and **PDF summaries** (with automated charting).
+### 🛠️ Professional Automation Pipeline (`main.py`)
+Transform raw ticker symbols into investment-banking-grade models with a single command.
+- **Precision Data Ingestion**: Seamlessly fetches audited 10-K/10-Q fundamentals from the **SEC EDGAR** database and live real-time market data from **Yahoo Finance**.
+- **Financial Engineering Engine**: 
+    - **Advanced Ratios**: Computes over **25+ key performance indicators** including Profitability, Liquidity, Solvency, and Efficiency metrics.
+    - **DuPont Analysis**: Built-in 3-factor decomposition to break down Return on Equity (ROE) into Asset Turnover, Financial Leverage, and Profit Margin.
+    - **Growth Tracks**: Automated year-over-year (YoY) variance analysis for Revenue, EBITDA, and Net Income.
+- **Intelligence Persistence**: Implements a high-performance **Parquet-based Data Lake** for type-safe, compressed, and fast I/O storage of processed financials.
+- **Enterprise Reporting**:
+    - **Excel Models**: Generates professionally formatted workbooks with conditional formatting, IB-style navy headers, and auto-adjusting column widths.
+    - **PDF Summaries**: Automated generation of aesthetic PDF research notes with embedded data tables and cover pages.
 
-### 2. Interactive "Curator" Dashboard (`app.py`)
-A state-of-the-art web interface designed for deep-dive equity research.
-- **Museum-Grade UI**: Custom-injected CSS providing a "Curator" dark-mode theme with high-visibility slate-background KPI cards.
-- **Deep-Dive Fundamentals**: Professional multi-year views of Income Statements, Balance Sheets, and Cash Flows with automated "Millions/Billions" scaling.
-- **Technical Analysis**: Integrated candlestick charts, moving averages, and volatility monitoring.
-- **Valuation Engine**: Built-in **Discounted Cash Flow (DCF)** models and Budget Variance trackers.
+### 🏛️ Interactive "Curator" Dashboard (`app.py`)
+A state-of-the-art web interface designed for deep-dive equity research and visualization.
+- **Modern UI Architecture**: Custom-injected CSS providing a "Curator" design system—featuring glassmorphic dark-navy themes, smooth micro-animations, and high-visibility slate-background KPI cards.
+- **Three-Statement Analysis**: Interactive multi-year views of **Income Statements**, **Balance Sheets**, and **Cash Flow Statements** with intelligent "Millions/Billions" auto-scaling.
+- **Visual Intelligence**: Response-ready line and bar charts powered by **Plotly**, tracking everything from revenue segmentation to historical price-to-earnings (P/E) trends.
+- **Research Modules**:
+    - **Technical Trends**: Integrated candlestick charts, volume analysis, and 52-week range monitoring.
+    - **Valuation Workbench**: Built-in **Discounted Cash Flow (DCF)** engines with adjustable sensitivity parameters.
+    - **Corporate Insights**: Automated tracking of corporate actions, stock splits, and institutional ownership breakdown.
 
 ---
 
@@ -74,18 +81,6 @@ streamlit run src/dashboard/app.py
 # Generate reports for specific tickers
 python main.py --tickers AAPL MSFT NVDA --output-dir ./output
 ```
-
----
-
-## 📊 Financial Ratios Computed
-
-| Category | Ratios |
-|----------|--------|
-| **Profitability** | Gross/Operating/Net Margin, EBITDA Margin |
-| **Returns** | ROE, ROA, **DuPont 3-Factor Decomposition** |
-| **Liquidity** | Current Ratio, Quick Ratio |
-| **Leverage** | Debt-to-Equity, Interest Coverage |
-| **Cash Flow** | Free Cash Flow (OCF - CapEx) |
 
 ---
 
